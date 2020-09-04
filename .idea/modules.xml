@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringCloudLearning.iml" filepath="$PROJECT_DIR$/.idea/SpringCloudLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/sc-f-gateway-cloud.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/sc-f-gateway-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-limiter/sc-f-gateway-filter.iml" filepath="$PROJECT_DIR$/sc-f-gateway-limiter/sc-f-gateway-filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-first-sight/sc-f-gateway-first-sight.iml" filepath="$PROJECT_DIR$/sc-f-gateway-first-sight/sc-f-gateway-first-sight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-predicate/sc-f-gateway-predicate.iml" filepath="$PROJECT_DIR$/sc-f-gateway-predicate/sc-f-gateway-predicate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/service-gateway/service-gateway.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/service-gateway/service-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/service-hi/service-hi.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/service-hi/service-hi.iml" />
+    </modules>
+  </component>
+</project>
