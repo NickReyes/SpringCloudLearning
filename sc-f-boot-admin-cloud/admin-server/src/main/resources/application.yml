@@ -13,8 +13,8 @@ spring:
 #          to: 1548282042@qq.com
         dingtalk:
           enabled: true
+          is-at-all: true
           at-mobiles: 18229799172
-          is-at-all: false
           webhook-token: https://oapi.dingtalk.com/robot/send?access_token=f434a4df312b0a4332248530c150286fb40e0ae0837c5af19bbe27bde4464ef9
 server:
   port: 8769

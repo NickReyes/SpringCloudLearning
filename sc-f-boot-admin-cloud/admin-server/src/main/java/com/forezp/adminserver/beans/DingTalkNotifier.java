@@ -3,7 +3,9 @@ package com.forezp.adminserver.beans;
 import de.codecentric.boot.admin.server.domain.entities.Instance;
 import de.codecentric.boot.admin.server.domain.entities.InstanceRepository;
 import de.codecentric.boot.admin.server.domain.events.InstanceEvent;
+import de.codecentric.boot.admin.server.domain.events.InstanceStatusChangedEvent;
 import de.codecentric.boot.admin.server.notify.AbstractStatusChangeNotifier;
+import org.json.simple.JSONObject;
 import org.springframework.context.expression.MapAccessor;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ParserContext;
@@ -30,12 +32,12 @@ public class DingTalkNotifier extends AbstractStatusChangeNotifier {
     private String atMobiles;
     private boolean isAtAll;
     private String msgtype = "text";
-    private String title = "监控报警、业务报警";
+    private String title = "系统警告";
     private Expression message;
 
     public DingTalkNotifier(InstanceRepository repository) {
         super(repository);
-        this.message = this.parser.parseExpression("*#{instance.registration.name}* (#{instance.id}) is *#{event.statusInfo.status}*", ParserContext.TEMPLATE_EXPRESSION);
+        //this.message = this.parser.parseExpression("#{instance.registration.serviceUrl}.#{event.statusInfo.status}", ParserContext.TEMPLATE_EXPRESSION);
     }
 
     @Override
@@ -43,20 +45,21 @@ public class DingTalkNotifier extends AbstractStatusChangeNotifier {
         if (webhookToken == null) {
             return Mono.error(new IllegalStateException("'webhookToken' must not be null."));
         }
-        return Mono.fromRunnable(
-                () -> restTemplate.postForEntity(webhookToken, createMessage(instanceEvent, instance), Void.class));
+        Mono<Void> objectMono = Mono.fromRunnable(
+                () -> restTemplate.postForEntity(webhookToken, createMessage(instance), Void.class));
+        return objectMono;
     }
 
-    private HttpEntity<Map<String, Object>> createMessage(InstanceEvent event, Instance instance) {
+    private HttpEntity<Map<String, Object>> createMessage(Instance instance) {
         Map<String, Object> messageJson = new HashMap<>();
         HashMap<String, String> params = new HashMap<>();
-        params.put("text", this.getMessage(event, instance));
-        params.put("content", this.title);
+        params.put("content", title + " : \n" + getMessage(instance) + "\n");
         //设置需要艾特的人
         Map<String, Object> atJson = new HashMap<>();
         atJson.put("isAtAll", this.isAtAll);
-        atJson.put("atMobiles", getAtMobilesString(this.atMobiles));
-
+        if (!this.isAtAll) {
+            atJson.put("atMobiles", getAtMobilesString(this.atMobiles));
+        }
         messageJson.put("at", atJson);
         messageJson.put("msgtype", this.msgtype);
         messageJson.put(this.msgtype, params);
@@ -72,22 +75,31 @@ public class DingTalkNotifier extends AbstractStatusChangeNotifier {
         return mobileList;
     }
 
-    private String getMessage(InstanceEvent event, Instance instance) {
-        Map<String, Object> root = new HashMap<>();
-        root.put("event", event);
-        root.put("instance", instance);
-        root.put("lastStatus", getLastStatus(event.getInstance()));
-        StandardEvaluationContext context = new StandardEvaluationContext(root);
-        context.addPropertyAccessor(new MapAccessor());
-        return this.message.getValue(context, String.class);
+    private String getMessage(Instance instance) {
+//        Map<String, Object> root = new HashMap<>();
+//        root.put("event", event);
+//        root.put("instance", instance);
+//        root.put("lastStatus", getLastStatus(event.getInstance()));
+//        StandardEvaluationContext context = new StandardEvaluationContext(root);
+//        context.addPropertyAccessor(new MapAccessor());
+//        return this.message.getValue(context, String.class);
+        //使用自定义的模板
+        String serviceName = instance.getRegistration().getName();
+        String serviceUrl = instance.getRegistration().getServiceUrl();
+        String status = instance.getStatusInfo().getStatus();
+        Map<String, Object> details = instance.getStatusInfo().getDetails();
+        return "【服务名】: " + serviceName +
+                "\n【服务地址】: " + serviceUrl +
+                "\n【状态】: " + status +
+                "\n【详情】: " + JSONObject.toJSONString(details);
     }
 
-    public boolean isAtAll() {
+    public boolean getIsAtAll() {
         return isAtAll;
     }
 
-    public void setAtAll(boolean atAll) {
-        isAtAll = atAll;
+    public void setIsAtAll(boolean isAtAll) {
+        this.isAtAll = isAtAll;
     }
 
     public void setRestTemplate(RestTemplate restTemplate) {

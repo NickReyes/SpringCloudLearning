@@ -18,8 +18,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnProperty(
         prefix = "spring.boot.admin.notify.dingtalk",
-        name = {"webhook-token"}
-
+        name = {"enabled"},
+        havingValue = "true"
 )
 @AutoConfigureBefore({AdminServerNotifierAutoConfiguration.NotifierTriggerConfiguration.class, AdminServerNotifierAutoConfiguration.CompositeNotifierConfiguration.class})
 public class DingTalkNotifierConfiguration {

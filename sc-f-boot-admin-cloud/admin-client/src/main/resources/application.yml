@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user
+    name: admin-client
 #  security:
 #    user:
 #      name: "client"
