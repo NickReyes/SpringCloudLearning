@@ -30,6 +30,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <spring-boot-admin.version>2.1.0</spring-boot-admin.version>
+        <alibaba-dingtalk.version>1.0.1</alibaba-dingtalk.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+                <version>${alibaba-dingtalk.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

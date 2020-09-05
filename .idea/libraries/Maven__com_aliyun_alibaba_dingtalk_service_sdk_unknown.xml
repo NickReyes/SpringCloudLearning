@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.aliyun:alibaba-dingtalk-service-sdk:unknown">
+    <CLASSES>
+      <root url="jar://E:/mavenRepository/com/aliyun/alibaba-dingtalk-service-sdk/unknown/alibaba-dingtalk-service-sdk-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/mavenRepository/com/aliyun/alibaba-dingtalk-service-sdk/unknown/alibaba-dingtalk-service-sdk-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/mavenRepository/com/aliyun/alibaba-dingtalk-service-sdk/unknown/alibaba-dingtalk-service-sdk-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

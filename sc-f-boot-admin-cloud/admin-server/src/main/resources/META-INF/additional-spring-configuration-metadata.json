@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.boot.admin.notify.dingtalk.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.boot.admin.notify.dingtalk.enabled."
+  }
+] }

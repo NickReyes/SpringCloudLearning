@@ -3,7 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringCloudLearning.iml" filepath="$PROJECT_DIR$/.idea/SpringCloudLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-boot-admin-cloud/admin-client/admin-client.iml" filepath="$PROJECT_DIR$/sc-f-boot-admin-cloud/admin-client/admin-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-boot-admin-cloud/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/sc-f-boot-admin-cloud/admin-server/admin-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-boot-admin-cloud/eureka-server/eureka-server (1).iml" filepath="$PROJECT_DIR$/sc-f-boot-admin-cloud/eureka-server/eureka-server (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-f-boot-admin-cloud/sc-f-boot-admin.iml" filepath="$PROJECT_DIR$/sc-f-boot-admin-cloud/sc-f-boot-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-cloud/sc-f-gateway-cloud.iml" filepath="$PROJECT_DIR$/sc-f-gateway-cloud/sc-f-gateway-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-limiter/sc-f-gateway-filter.iml" filepath="$PROJECT_DIR$/sc-f-gateway-limiter/sc-f-gateway-filter.iml" />
       <module fileurl="file://$PROJECT_DIR$/sc-f-gateway-first-sight/sc-f-gateway-first-sight.iml" filepath="$PROJECT_DIR$/sc-f-gateway-first-sight/sc-f-gateway-first-sight.iml" />

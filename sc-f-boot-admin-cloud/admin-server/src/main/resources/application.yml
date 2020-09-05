@@ -5,6 +5,17 @@ spring:
     user:
       name: "admin"
       password: "admin"
+  boot:
+    admin:
+      notify:
+#        mail:
+#          from: zengjun_111@163.com
+#          to: 1548282042@qq.com
+        dingtalk:
+          enabled: true
+          at-mobiles: 18229799172
+          is-at-all: false
+          webhook-token: https://oapi.dingtalk.com/robot/send?access_token=f434a4df312b0a4332248530c150286fb40e0ae0837c5af19bbe27bde4464ef9
 server:
   port: 8769
 eureka:
@@ -28,9 +39,13 @@ management:
     health:
       show-details: ALWAYS
 
+#spring.mail.host: smtp.163.com
+#spring.mail.username: zengjun_111@163.com
+#spring.mail.password: TNKIXYYZPKQIZZAH
+##spring.mail.password: TNKIXYYZPKQIZZAH
+#spring.mail.properties.mail.smtp.auth: true
+#spring.mail.properties.mail.smtp.starttls.enable: true
+#spring.mail.properties.mail.smtp.starttls.required: true
+#spring.mail.default-encoding: UTF-8
 
-spring.mail.host: smtp.163.com
-spring.mail.username: miles02
-spring.mail.password:
-spring.boot.admin.notify.mail.to: 124746406@qq.com
 

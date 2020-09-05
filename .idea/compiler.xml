@@ -9,13 +9,20 @@
         <module name="sc-f-gateway-filter" />
         <module name="eureka-server" />
         <module name="service-hi" />
+        <module name="admin-server" />
         <module name="sc-f-gateway-first-sight" />
+        <module name="admin-client" />
         <module name="service-gateway" />
         <module name="sc-f-gateway-predicate" />
+        <module name="eureka-server (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="admin-client" target="1.8" />
+      <module name="admin-server" target="1.8" />
       <module name="eureka-server" target="1.8" />
+      <module name="eureka-server (1)" target="1.8" />
+      <module name="sc-f-boot-admin" target="1.8" />
       <module name="sc-f-gateway-cloud" target="1.8" />
       <module name="sc-f-gateway-filter" target="1.8" />
       <module name="sc-f-gateway-first-sight" target="1.8" />
@@ -26,7 +33,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin-client" options="-parameters" />
+      <module name="admin-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="eureka-server (1)" options="-parameters" />
       <module name="sc-f-gateway-filter" options="-parameters" />
       <module name="sc-f-gateway-first-sight" options="-parameters" />
       <module name="sc-f-gateway-predicate" options="-parameters" />
